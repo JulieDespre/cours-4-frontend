@@ -36,6 +36,11 @@ describe('Counter', () => {
     it('decrements counter', async () => {
       const wrapper = mountCounter(50)
       const counterStore = useCounterStore()
+      // Déclenche un clic sur le bouton de décrémentation
+      await wrapper.find('button[id=decrement]').trigger('click') 
+      // Vérifie si la méthode de décrémentation a été appelée une fois
+ 
+      expect(counterStore.decrement).toHaveBeenCalledTimes(1) 
     })
   })
 })
